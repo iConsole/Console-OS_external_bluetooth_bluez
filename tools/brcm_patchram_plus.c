@@ -122,6 +122,7 @@
 
 #include <string.h>
 #include <signal.h>
+#include <unistd.h>
 
 /* DDS: We don't want all stuff to be outputted to Android's log...
 #ifdef ANDROID

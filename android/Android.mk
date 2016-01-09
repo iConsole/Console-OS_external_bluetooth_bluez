@@ -39,10 +39,10 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
 	bluez/android/main.c \
 	bluez/android/bluetooth.c \
-	bluez/android/scpp.c \
-	bluez/android/dis.c \
-	bluez/android/bas.c \
-	bluez/android/hog.c \
+	bluez/profiles/scanparam/scpp.c \
+	bluez/profiles/deviceinfo/dis.c \
+	bluez/profiles/battery/bas.c \
+	bluez/profiles/input/hog-lib.c \
 	bluez/android/hidhost.c \
 	bluez/android/socket.c \
 	bluez/android/ipc.c \
@@ -95,6 +95,7 @@ LOCAL_C_INCLUDES := \
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
 
@@ -238,6 +239,7 @@ LOCAL_C_INCLUDES := \
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
 
@@ -270,6 +272,7 @@ LOCAL_C_INCLUDES := \
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
 
@@ -328,6 +331,8 @@ LOCAL_SRC_FILES := \
 	bluez/monitor/packet.c \
 	bluez/monitor/l2cap.c \
 	bluez/monitor/avctp.c \
+	bluez/monitor/avdtp.c \
+	bluez/monitor/a2dp.c \
 	bluez/monitor/rfcomm.c \
 	bluez/monitor/bnep.c \
 	bluez/monitor/uuid.c \
@@ -340,6 +345,8 @@ LOCAL_SRC_FILES := \
 	bluez/monitor/keys.c \
 	bluez/monitor/ellisys.c \
 	bluez/monitor/analyze.c \
+	bluez/monitor/intel.c \
+	bluez/monitor/broadcom.c \
 	bluez/src/shared/util.c \
 	bluez/src/shared/queue.c \
 	bluez/src/shared/crypto.c \
@@ -536,6 +543,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 	$(LOCAL_PATH)/bluez/android/compat \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
@@ -635,6 +643,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
 
@@ -687,7 +696,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := brcm_patchram_plus
 
-LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
+LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS) -Wno-missing-declarations
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 
@@ -795,6 +804,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/bluez \
+	$(LOCAL_PATH)/bluez/android \
 
 LOCAL_CFLAGS := $(BLUEZ_COMMON_CFLAGS)
 
